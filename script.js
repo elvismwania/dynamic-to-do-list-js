@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
     const taskInput = document.getElementById("task-input");
     const addTaskBtn = document.getElementById("add-task-btn");
     const taskList = document.getElementById("task-list");
@@ -31,8 +30,26 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   
+    // Function to remove a task
+    function removeTask(event) {
+      const listItem = event.target.parentNode;
+      taskList.removeChild(listItem);
+  
+      // Remove the task from the tasks array
+      const taskText = listItem.textContent.slice(0, -1); // Remove the "X"
+      tasks = tasks.filter(task => task !== taskText);
+  
+      // Update Local Storage
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+  
     // Event listener for adding tasks
     addTaskBtn.addEventListener("click", addTask);
   
-    // ... rest of your code (e.g., for removing tasks)
+    // Event listener for removing tasks (using event delegation)
+    taskList.addEventListener("click", (event) => {
+      if (event.target.classList.contains("remove-btn")) {
+        removeTask(event);
+      }
+    });
   });
