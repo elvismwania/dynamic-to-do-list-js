@@ -1,36 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const taskInput = document.getElementById('task-input');
-    const addTaskBtn = document.getElementById('add-task-btn'); 
-    const taskList = document.getElementById('task-list'); 
+    // All your JavaScript code will go here
   
-    addTaskBtn.addEventListener('click', addTask); 
+    const taskInput = document.getElementById("task-input");
+    const addTaskBtn = document.getElementById("add-task-btn");
+    const taskList = document.getElementById("task-list");
   
-    function addTask() { 
-      const newTask = taskInput.value.trim();
-  
-      if (newTask === '') {
-        alert('Please enter a task.');
-        return;
-      }
-  
-      const listItem = document.createElement('li');
-      listItem.textContent = newTask;
-  
-      const removeBtn = document.createElement('button');
-      removeBtn.textContent = 'Remove';
-      removeBtn.addEventListener('click', () => {
-        listItem.remove();
-      });
-  
-      listItem.appendChild(removeBtn);
-      taskList.appendChild(listItem);
-  
-      taskInput.value = '';
-    }
-  
-    taskInput.addEventListener('keypress', (event) => {
-      if (event.key === 'Enter') {
-        addTask();
+    addTaskBtn.addEventListener("click", () => {
+      const taskText = taskInput.value;
+      if (taskText !== "") {
+        const newTask = document.createElement("li");
+        newTask.textContent = taskText;
+        taskList.appendChild(newTask);
+        taskInput.value = ""; 
       }
     });
+  
+    // ... rest of your code (e.g., for removing tasks)
   });
