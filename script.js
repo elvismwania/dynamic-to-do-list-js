@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const taskInput = document.getElementById('task-input');
-    const addTaskBtn = document.getElementById('add-task-btn'); 
+    const addTaskBtn = document.getElementById('add-task-btn');
     const taskList = document.getElementById('task-list');
   
-    addTaskBtn.addEventListener('click', () => {
+    function addTask() {
       const newTask = taskInput.value.trim();
   
       if (newTask === '') {
@@ -17,12 +17,20 @@ document.addEventListener('DOMContentLoaded', () => {
       const removeBtn = document.createElement('button');
       removeBtn.textContent = 'Remove';
       removeBtn.addEventListener('click', () => {
-        listItem.remove(); 
+        listItem.remove();
       });
   
       listItem.appendChild(removeBtn);
       taskList.appendChild(listItem);
   
       taskInput.value = '';
+    }
+  
+    addTaskBtn.addEventListener('click', addTask);
+  
+    taskInput.addEventListener('keypress', (event) => {
+      if (event.key === 'Enter') {
+        addTask();
+      }
     });
   });
