@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const taskInput = document.getElementById('task-input');
-    const addTaskBtn = document.getElementById('add-task-btn'); // Corrected line
+    const addTaskBtn = document.getElementById('add-task-btn');
     const taskList = document.getElementById('task-list');
   
-    addTaskBtn.addEventListener('click', () => { 
+    addTaskBtn.addEventListener('click', function() { 
       const newTask = taskInput.value.trim();
   
       if (newTask === '') {
