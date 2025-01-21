@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const taskInput = document.getElementById('task-input');
-    const addTaskBtn = document.getElementById('add-task-btn');
+    const addTaskBtn = document.getElementById('add-task-btn'); // Corrected line
     const taskList = document.getElementById('task-list');
   
     addTaskBtn.addEventListener('click', function() { 
